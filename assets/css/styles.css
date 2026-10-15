@@ -1,0 +1,706 @@
+/* =========================================
+   1. RESET DAN PENGATURAN DASAR
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --navy: #102d57;
+    --navy-dark: #0d2549;
+    --text-dark: #102b53;
+    --text-muted: #687b99;
+    --background: #f4f8fd;
+    --white: #ffffff;
+    --border: #e3ebf6;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--background);
+    color: var(--text-dark);
+    min-height: 100vh;
+}
+
+
+/* =========================================
+   2. SIDEBAR
+========================================= */
+
+.sidebar {
+    width: 243px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    background: linear-gradient(
+        180deg,
+        var(--navy) 0%,
+        var(--navy-dark) 100%
+    );
+
+    color: var(--white);
+    padding: 30px 10px;
+    z-index: 100;
+}
+
+
+/* Logo */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    padding: 0 16px;
+    margin-bottom: 38px;
+
+    min-height: 52px;
+}
+
+.logo i {
+    font-size: 38px;
+}
+
+.logo span {
+    font-size: 23px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+
+/* Menu navigasi */
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+
+    width: 100%;
+    min-height: 53px;
+
+    padding: 13px 17px;
+
+    text-decoration: none;
+    color: #ffffff;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    border-radius: 9px;
+
+    transition: background 0.25s ease;
+}
+
+.nav-link i {
+    width: 24px;
+    text-align: center;
+    font-size: 23px;
+}
+
+.nav-link span {
+    white-space: nowrap;
+}
+
+
+/* Menu aktif */
+
+.nav-link.active {
+    background: linear-gradient(
+        100deg,
+        #398cf4,
+        #2474df
+    );
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+
+/* Efek ketika mouse diarahkan */
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.13);
+}
+
+.nav-link.active:hover {
+    background: #2474df;
+}
+
+
+/* =========================================
+   3. KONTEN UTAMA
+========================================= */
+
+.main-content {
+    margin-left: 243px;
+    min-height: 100vh;
+    background: var(--background);
+}
+
+
+/* =========================================
+   4. HEADER BAGIAN ATAS
+========================================= */
+
+.topbar {
+    height: 98px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 30px;
+
+    background: rgba(193, 221, 248, 0.507);
+}
+
+.topbar-space {
+    flex: 1;
+}
+
+
+.welcome-nama {
+    color: var(--navy);
+}
+
+/* Profil siswa */
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    color: var(--text-dark);
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.user-icon {
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #647895;
+    color: white;
+
+    border-radius: 50%;
+    font-size: 17px;
+}
+
+.arrow-icon {
+    font-size: 12px;
+    color: #647895;
+}
+
+
+/* =========================================
+   5. BAGIAN JADWAL
+========================================= */
+
+.schedule-section {
+    padding: 43px 30px 35px;
+}
+
+
+/* Judul halaman */
+
+.page-heading {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+
+    margin-bottom: 35px;
+}
+
+.heading-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #4f9af7;
+    font-size: 38px;
+}
+
+.heading-text h1 {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: -1px;
+}
+
+.heading-text p {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-top: 2px;
+}
+
+
+/* =========================================
+   6. CONTAINER LIMA KOLOM
+========================================= */
+
+.schedule-container {
+    display: grid;
+
+    /* Lima hari ditampilkan berdampingan */
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+
+    gap: 14px;
+
+    align-items: stretch;
+}
+
+
+/* =========================================
+   7. KARTU SETIAP HARI
+========================================= */
+
+.day-column {
+    min-width: 0;
+
+    background: var(--white);
+
+    border: 1px solid #e0eaf7;
+    border-radius: 11px;
+
+    overflow: hidden;
+
+    box-shadow: 0 4px 12px rgba(27, 63, 111, 0.04);
+}
+
+
+/* Header hari */
+
+.day-header {
+    min-height: 57px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 12px 16px;
+
+    color: white;
+}
+
+.day-header i {
+    font-size: 20px;
+}
+
+.day-header h2 {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* Warna setiap hari */
+
+.monday .day-header {
+    background: linear-gradient(110deg, #63a7fa, #4b96f6);
+}
+
+.tuesday .day-header {
+    background: linear-gradient(110deg, #43c5a7, #32b69d);
+}
+
+.wednesday .day-header {
+    background: linear-gradient(110deg, #ffd15b, #ffc444);
+}
+
+.thursday .day-header {
+    background: linear-gradient(110deg, #9380f5, #8171ed);
+}
+
+.friday .day-header {
+    background: linear-gradient(110deg, #ff6395, #f84d83);
+}
+
+
+/* =========================================
+   8. ISI JADWAL
+========================================= */
+
+.day-body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    padding: 12px;
+}
+
+
+/* Kartu pelajaran */
+
+.lesson-card {
+    min-height: 85px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 12px 9px;
+
+    border: 1px solid #e5edf8;
+    border-radius: 11px;
+
+    background: #f7faff;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* Efek hover */
+
+.lesson-card:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 5px 12px rgba(28, 61, 102, 0.08);
+}
+
+
+/* Nomor pelajaran */
+
+.lesson-number {
+    flex-shrink: 0;
+
+    width: 33px;
+    height: 33px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* Warna nomor mengikuti warna hari */
+
+.monday .lesson-number {
+    background: linear-gradient(135deg, #6ab0ff, #438ff2);
+}
+
+.tuesday .lesson-number {
+    background: linear-gradient(135deg, #4bd1b4, #2caf96);
+}
+
+.wednesday .lesson-number {
+    background: linear-gradient(135deg, #ffdb6b, #ffbb31);
+}
+
+.thursday .lesson-number {
+    background: linear-gradient(135deg, #a294ff, #7c6aed);
+}
+
+.friday .lesson-number {
+    background: linear-gradient(135deg, #ff779f, #fa4c81);
+}
+
+
+/* Informasi pelajaran */
+
+.lesson-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.lesson-info h3 {
+    font-size: 11px;
+    font-weight: 600;
+
+    line-height: 1.6;
+
+    color: var(--text-dark);
+
+    overflow-wrap: anywhere;
+}
+
+.lesson-info p {
+    margin-top: 7px;
+
+    color: var(--text-muted);
+
+    font-size: 10px;
+    font-weight: 400;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   9. KARTU ISTIRAHAT
+========================================= */
+
+.break-card {
+    background: #f1f5fa;
+    border-color: #edf1f7;
+}
+
+.break-card .lesson-info h3 {
+    font-weight: 500;
+}
+
+.break-card .lesson-info p {
+    color: #70819b;
+}
+
+
+/* Ikon istirahat */
+
+.break-icon {
+    flex-shrink: 0;
+
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #dce5ef;
+    color: #657995;
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   10. WARNA LATAR KARTU SETIAP HARI
+========================================= */
+
+.monday .lesson-card:not(.break-card) {
+    background: linear-gradient(
+        135deg,
+        #f5f9ff,
+        #f9fbff
+    );
+}
+
+.tuesday .lesson-card:not(.break-card) {
+    background: linear-gradient(
+        135deg,
+        #f2fcf9,
+        #f8fdfc
+    );
+}
+
+.wednesday .lesson-card:not(.break-card) {
+    background: linear-gradient(
+        135deg,
+        #fffbf2,
+        #fffdf8
+    );
+}
+
+.thursday .lesson-card:not(.break-card) {
+    background: linear-gradient(
+        135deg,
+        #f6f5ff,
+        #fafaff
+    );
+}
+
+.friday .lesson-card:not(.break-card) {
+    background: linear-gradient(
+        135deg,
+        #fff4f8,
+        #fffafd
+    );
+}
+
+
+/* =========================================
+   11. RESPONSIVE TABLET
+========================================= */
+
+@media screen and (max-width: 1250px) {
+
+    .sidebar {
+        width: 215px;
+    }
+
+    .main-content {
+        margin-left: 215px;
+    }
+
+    .schedule-section {
+        padding: 35px 20px;
+    }
+
+    .schedule-container {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+    }
+
+    .heading-text h1 {
+        font-size: 32px;
+    }
+
+    .lesson-card {
+        padding: 12px;
+    }
+
+    .lesson-info h3 {
+        font-size: 13px;
+    }
+
+}
+
+
+/* =========================================
+   12. RESPONSIVE TABLET KECIL
+========================================= */
+
+@media screen and (max-width: 850px) {
+
+    .sidebar {
+        width: 75px;
+        padding: 25px 8px;
+    }
+
+      .logo {
+          justify-content: center;
+          padding: 0;
+      }
+
+    .logo i {
+        font-size: 30px;
+    }
+
+    .logo span {
+        display: none;
+    }
+
+    .nav-link {
+        justify-content: center;
+        padding: 13px 5px;
+    }
+
+    .nav-link i {
+        font-size: 22px;
+    }
+
+    .nav-link span {
+        display: none;
+    }
+
+    .main-content {
+        margin-left: 75px;
+    }
+
+    .schedule-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .heading-text h1 {
+        font-size: 29px;
+    }
+
+    .heading-icon {
+        font-size: 40px;
+    }
+
+}
+
+
+/* =========================================
+   13. RESPONSIVE HP
+========================================= */
+
+@media screen and (max-width: 520px) {
+
+    .sidebar {
+        width: 60px;
+        padding: 20px 5px;
+    }
+
+    .main-content {
+        margin-left: 60px;
+    }
+
+    .topbar {
+        height: 70px;
+        padding: 0 15px;
+    }
+
+    .user-profile {
+        gap: 8px;
+        font-size: 13px;
+    }
+
+    .user-icon {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+    }
+
+    .schedule-section {
+        padding: 25px 12px;
+    }
+
+    .page-heading {
+        gap: 10px;
+        margin-bottom: 25px;
+    }
+
+    .heading-icon {
+        font-size: 30px;
+    }
+
+    .heading-text h1 {
+        font-size: 22px;
+        letter-spacing: -0.5px;
+    }
+
+    .heading-text p {
+        font-size: 11px;
+    }
+
+    .schedule-container {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .day-header {
+        min-height: 52px;
+    }
+
+    .day-header h2 {
+        font-size: 16px;
+    }
+
+    .lesson-card {
+        min-height: 75px;
+        padding: 12px;
+    }
+
+    .lesson-info h3 {
+        font-size: 13px;
+    }
+
+    .lesson-info p {
+        font-size: 12px;
+    }
+
+}
