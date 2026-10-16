@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Jadwal Pelajaran - MyWebsite</title>
+    <title>Jadwal Pelajaran - Study Plan</title>
 
     <!-- Menghubungkan file CSS -->
-     <link rel="stylesheet" href="styles.css">
+     <link rel="stylesheet" href="<?= base_url('assets/css/styles.css') ?>">
 
     <!-- Font dari Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,18 +28,18 @@
          <!-- Logo website -->
          <div class="logo">
              <i class="fa-solid fa-school"></i>
-             <span>MyWebsite</span>
+             <span>Study Plan</span>
          </div>
 
         <!-- Menu navigasi -->
         <nav class="navigation">
 
-            <a href="#" class="nav-link">
+            <a href="<?= base_url() ?>" class="nav-link">
                 <i class="fa-solid fa-house"></i>
                 <span>Beranda</span>
             </a>
 
-            <a href="#" class="nav-link active">
+            <a href="<?= base_url('studyplan') ?>" class="nav-link active">
                 <i class="fa-regular fa-calendar-days"></i>
                 <span>Jadwal Pelajaran</span>
             </a>
@@ -70,9 +70,9 @@
     <main class="main-content">
 
         <!-- HEADER -->
-        <header class="topbar">
+        <header class="topbar" style="border-radius: 20px; padding: 24px; margin: 0 40px; background: #ffffff; box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
 
-            <div class="welcome-text" style="text-align:center; font-size:30px; font-weight:700; line-height:1.35; letter-spacing:-1px; width:100%;">selamat datang <span class="welcome-nama">siswa</span></div>
+            <div class="welcome-text" style="text-align:center; font-size:30px; font-weight:700; line-height:1.35; letter-spacing:-1px;">selamat datang <span class="welcome-nama">siswa</span></div>
 
         </header>
 
