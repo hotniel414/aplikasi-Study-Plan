@@ -1,0 +1,148 @@
+/* =========================================
+   STYLING HALAMAN TUGAS
+========================================= */
+
+/* Container daftar tugas */
+.task-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 14px;
+}
+
+/* Card tugas */
+.task-card {
+    align-items: center;
+    padding: 6px 10px;
+    transition: all 0.25s ease;
+    gap: 10px;
+    background: linear-gradient(90deg, #f8faff 0%, #ffffff 100%);
+    border: 1px solid #e8f1ff;
+    box-shadow: 0 1px 6px rgba(16, 45, 87, 0.04);
+}
+
+.task-card:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(16, 45, 87, 0.08);
+}
+
+/* Ikon pada card tugas */
+.task-card .lesson-number {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #2a5db0 0%, var(--navy) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    color: var(--white);
+    flex-shrink: 0;
+    box-shadow: 0 2px 6px rgba(16, 45, 87, 0.25);
+}
+
+/* Info tugas */
+.task-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px 6px;
+    flex: 1;
+}
+
+.task-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1.3;
+    margin: 0;
+}
+
+.task-subject{   
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 8.5px;
+    font-weight: 500;
+    color: #085ec0e1;
+    padding: 0px 5px;
+    border-radius: 5px;
+    background: rgba(34, 121, 179, 0.267);
+    flex-shrink: 0;}
+.task-deadline {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 8.5px;
+    font-weight: 500;
+    color: #c01508e1;
+    padding: 0px 5px;
+    border-radius: 5px;
+    background: rgba(179, 39, 34, 0.267);
+    flex-shrink: 0;
+}
+
+.task-subject i { color: #005ed8da;
+    font-size: 8.5px;
+    width: 11.5px;
+    text-align: center;}
+.task-deadline i {
+    color: #d80000da;
+    font-size: 8.5px;
+    width: 11.5px;
+    text-align: center;
+}
+
+/* Link lihat gambar tugas */
+.task-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 7px;
+    background: linear-gradient(90deg, #2a5db0 0%, var(--navy) 100%);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 10.5px;
+    font-weight: 600;
+    width: fit-content;
+    box-shadow: 0 3px 10px rgba(16, 45, 87, 0.18);
+    transition: all 0.25s ease;
+    flex-shrink: 0;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    transform: translateY(45%);
+}
+
+.task-link:hover {
+    transform: translateX(2px);
+    box-shadow: 0 4px 12px rgba(16, 45, 87, 0.22);
+}
+
+.task-link:active {
+    transform: translateX(1px);
+    box-shadow: 0 3px 10px rgba(16, 45, 87, 0.18);
+}
+
+/* Meta info (nama pelajaran & dateline) */
+.task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.task-meta {
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px 10px;
+    width: 100%;
+}
+
+.task-meta .task-subject,
+.task-meta .task-deadline {
+    margin: 0;
+}
