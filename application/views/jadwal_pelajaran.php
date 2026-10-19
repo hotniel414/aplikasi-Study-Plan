@@ -34,17 +34,17 @@
         <!-- Menu navigasi -->
         <nav class="navigation">
 
-            <a href="<?= base_url() ?>" class="nav-link">
+            <a href="<?= site_url() ?>" class="nav-link">
                 <i class="fa-solid fa-house"></i>
                 <span>Beranda</span>
             </a>
 
-            <a href="<?= base_url('studyplan') ?>" class="nav-link active">
+            <a href="<?= site_url('studyplan') ?>" class="nav-link active">
                 <i class="fa-regular fa-calendar-days"></i>
                 <span>Jadwal Pelajaran</span>
             </a>
 
-            <a href="#" class="nav-link">
+            <a href="<?= site_url('studyplan/tugas') ?>" class="nav-link">
                 <i class="fa-solid fa-clipboard-list"></i>
                 <span>Tugas</span>
             </a>
@@ -453,6 +453,15 @@
         </section>
 
     </main>
+
+    <script>
+        document.querySelectorAll('.lesson-card').forEach(card => {
+            card.style.cursor = 'pointer';
+            card.addEventListener('click', () => {
+                window.location.href = '<?= base_url('studyplan/tugas') ?>';
+            });
+        });
+    </script>
 
 </body>
 </html>

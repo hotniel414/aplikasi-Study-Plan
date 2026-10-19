@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Tugas - MyWebsite</title>
+    <title>Tugas - Study Plan</title>
 
     <!-- Menghubungkan file CSS -->
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="tugas.css">
-    <link rel="stylesheet" href="tugas.css">
+     <link rel="stylesheet" href="<?= base_url('assets/css/styles.css') ?>">
+     <link rel="stylesheet" href="<?= base_url('assets/css/tugas.css') ?>">
 
     <!-- Font dari Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,23 +29,23 @@
          <!-- Logo website -->
          <div class="logo">
              <i class="fa-solid fa-school"></i>
-             <span>MyWebsite</span>
+             <span>Study Plan</span>
          </div>
 
         <!-- Menu navigasi -->
         <nav class="navigation">
 
-            <a href="#" class="nav-link">
+            <a href="<?= site_url() ?>" class="nav-link">
                 <i class="fa-solid fa-house"></i>
                 <span>Beranda</span>
             </a>
 
-            <a href="jadwal_pelajaran.html" class="nav-link">
+            <a href="<?= site_url('studyplan') ?>" class="nav-link">
                 <i class="fa-regular fa-calendar-days"></i>
                 <span>Jadwal Pelajaran</span>
             </a>
 
-            <a href="tugas.html" class="nav-link active">
+            <a href="<?= site_url('studyplan/tugas') ?>" class="nav-link active">
                 <i class="fa-solid fa-clipboard-list"></i>
                 <span>Tugas</span>
             </a>

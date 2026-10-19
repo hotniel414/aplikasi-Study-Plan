@@ -13,4 +13,7 @@ class Studyplan extends CI_Controller
     {
         $this->load->view('jadwal_pelajaran');
     }
+    public function tugas(){
+        $this ->load->view('tugas');
+    }
 }
