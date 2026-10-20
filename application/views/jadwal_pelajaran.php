@@ -63,6 +63,10 @@
 
         </nav>
 
+        <div class="sidebar-footer" style="margin-top: auto; margin-bottom: 20px; padding: 20px; text-align: center; border-top: 1px solid #eee; font-size: 13px; color: #666;">
+            <div id="sidebar-date" style="line-height: 1.6;"></div>
+        </div>
+
     </aside>
 
 
@@ -458,9 +462,20 @@
         document.querySelectorAll('.lesson-card').forEach(card => {
             card.style.cursor = 'pointer';
             card.addEventListener('click', () => {
-                window.location.href = '<?= base_url('studyplan/tugas') ?>';
+                window.location.href = '<?= site_url('studyplan/tugas') ?>';
             });
         });
+        function updateSidebarDate() {
+            const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+            const months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+            const now = new Date();
+            const dayName = days[now.getDay()];
+            const date = now.getDate();
+            const month = months[now.getMonth()];
+            const year = now.getFullYear();
+            document.getElementById('sidebar-date').innerHTML = dayName + '<br>' + date + ' ' + month + ' ' + year;
+        }
+        updateSidebarDate();
     </script>
 
 </body>

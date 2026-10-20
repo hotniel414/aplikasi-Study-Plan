@@ -64,6 +64,10 @@
 
         </nav>
 
+        <div class="sidebar-footer" style="margin-top: auto; margin-bottom: 20px; padding: 20px; text-align: center; border-top: 1px solid #eee; font-size: 13px; color: #666;">
+            <div id="sidebar-date" style="line-height: 1.6;"></div>
+        </div>
+
     </aside>
 
 
@@ -71,9 +75,9 @@
     <main class="main-content">
 
         <!-- HEADER -->
-        <header class="topbar">
+        <header class="topbar" style="border-radius: 20px; padding: 24px; margin: 0 40px; background: #ffffff; box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
 
-            <div class="welcome-text" style="text-align:center; font-size:30px; font-weight:700; line-height:1.35; letter-spacing:-1px; width:100%;">selamat datang <span class="welcome-nama">siswa</span></div>
+            <div class="welcome-text" style="text-align:center; font-size:30px; font-weight:700; line-height:1.35; letter-spacing:-1px;">selamat datang <span class="welcome-nama">siswa</span></div>
 
         </header>
 
@@ -96,7 +100,16 @@
             </div>
 
 
-            <!-- DAFTAR TUGAS -->
+            <!-- Search -->
+            <div class="task-search" style="margin: 20px 0; display: flex; gap: 10px; align-items: center;">
+                <div style="flex: 1; position: relative;">
+                    <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: #999;"></i>
+                    <input type="text" id="taskSearch" placeholder="Cari tugas..." style="width: 100%; padding: 12px 12px 12px 40px; border-radius: 12px; border: 1px solid #ddd; font-family: 'Poppins', sans-serif;">
+                </div>
+                <button type="button" onclick="searchTasks()" style="padding: 12px 24px; background: #4f7cff; color: white; border: none; border-radius: 12px; cursor: pointer; font-family: 'Poppins', sans-serif; font-weight: 500;">
+                    <i class="fa-solid fa-magnifying-glass"></i> Cari
+                </button>
+            </div>
             <div class="task-list-container">
 
                 <!-- TUGAS 1 -->
@@ -224,6 +237,39 @@
         </section>
 
     </main>
+
+    <script>
+        function updateSidebarDate() {
+            const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+            const months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+            const now = new Date();
+            const dayName = days[now.getDay()];
+            const date = now.getDate();
+            const month = months[now.getMonth()];
+            const year = now.getFullYear();
+            document.getElementById('sidebar-date').innerHTML = dayName + '<br>' + date + ' ' + month + ' ' + year;
+        }
+        updateSidebarDate();
+        function searchTasks() {
+            const input = document.getElementById('taskSearch').value.toLowerCase();
+            const cards = document.querySelectorAll('.task-card');
+            cards.forEach(card => {
+                const title = card.querySelector('.task-title').textContent.toLowerCase();
+                const subject = card.querySelector('.task-subject').textContent.toLowerCase();
+                if (title.includes(input) || subject.includes(input)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        document.getElementById('taskSearch').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchTasks();
+            }
+        });
+    </script>
 
 </body>
 </html>
